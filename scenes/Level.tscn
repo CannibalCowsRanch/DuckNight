@@ -1,0 +1,46 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://assets/Background.png" type="Texture" id=1]
+[ext_resource path="res://assets/Seldon.ogg" type="AudioStream" id=2]
+[ext_resource path="res://scenes/Camera2D.gd" type="Script" id=3]
+[ext_resource path="res://scenes/Level.gd" type="Script" id=4]
+
+[node name="Level" type="Node2D"]
+script = ExtResource( 4 )
+
+[node name="Background" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+centered = false
+
+[node name="SpawnPoints" type="Node2D" parent="."]
+
+[node name="Spawn1" type="Position2D" parent="SpawnPoints"]
+position = Vector2( 901.012, 2.65005 )
+
+[node name="Spawn2" type="Position2D" parent="SpawnPoints"]
+position = Vector2( 1910.68, 527.357 )
+
+[node name="Spawn3" type="Position2D" parent="SpawnPoints"]
+position = Vector2( 943.412, 1065.31 )
+
+[node name="Spawn4" type="Position2D" parent="SpawnPoints"]
+position = Vector2( 7.95013, 548.557 )
+
+[node name="Audio" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 2 )
+
+[node name="Camera2D" type="Camera2D" parent="."]
+offset = Vector2( 960, 540 )
+current = true
+script = ExtResource( 3 )
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.5
+
+[node name="StartTimer" type="Timer" parent="."]
+wait_time = 5.5
+one_shot = true
+autostart = true
+[connection signal="finished" from="Audio" to="." method="_on_Audio_finished"]
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
+[connection signal="timeout" from="StartTimer" to="." method="_on_StartTimer_timeout"]

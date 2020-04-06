@@ -1,0 +1,200 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://scenes/Theme.tres" type="Theme" id=1]
+[ext_resource path="res://assets/Background.png" type="Texture" id=2]
+[ext_resource path="res://scenes/Menu.gd" type="Script" id=3]
+
+[node name="Menu" type="Node2D"]
+script = ExtResource( 3 )
+
+[node name="Background" type="Sprite" parent="."]
+position = Vector2( 0, 1 )
+texture = ExtResource( 2 )
+centered = false
+
+[node name="UI" type="Control" parent="."]
+margin_right = 1920.0
+margin_bottom = 1080.0
+theme = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Movement" type="HBoxContainer" parent="UI"]
+anchor_left = 0.313
+anchor_top = 0.278
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = -1455.0
+margin_bottom = -1036.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="UI/Movement"]
+margin_top = 4.0
+margin_right = 310.0
+margin_bottom = 40.0
+theme = ExtResource( 1 )
+text = "Select Movement: "
+uppercase = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PrevButton" type="Button" parent="UI/Movement"]
+margin_left = 314.0
+margin_right = 339.0
+margin_bottom = 44.0
+theme = ExtResource( 1 )
+text = "<"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Selected" type="Label" parent="UI/Movement"]
+margin_left = 343.0
+margin_top = 4.0
+margin_right = 414.0
+margin_bottom = 40.0
+theme = ExtResource( 1 )
+text = "Legs"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="NextButton" type="Button" parent="UI/Movement"]
+margin_left = 418.0
+margin_right = 465.0
+margin_bottom = 44.0
+theme = ExtResource( 1 )
+text = " >"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Weapon" type="HBoxContainer" parent="UI"]
+anchor_left = 0.333
+anchor_top = 0.339
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = -1455.0
+margin_bottom = -1036.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="UI/Weapon"]
+margin_top = 4.0
+margin_right = 275.0
+margin_bottom = 40.0
+theme = ExtResource( 1 )
+text = "Select Weapon: "
+uppercase = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PrevButton" type="Button" parent="UI/Weapon"]
+margin_left = 279.0
+margin_right = 304.0
+margin_bottom = 44.0
+theme = ExtResource( 1 )
+text = "<"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Selected" type="Label" parent="UI/Weapon"]
+margin_left = 308.0
+margin_top = 4.0
+margin_right = 390.0
+margin_bottom = 40.0
+theme = ExtResource( 1 )
+text = "Pistol"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="NextButton" type="Button" parent="UI/Weapon"]
+margin_left = 394.0
+margin_right = 441.0
+margin_bottom = 44.0
+theme = ExtResource( 1 )
+text = " >"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Kit" type="HBoxContainer" parent="UI"]
+anchor_left = 0.384
+anchor_top = 0.409
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = -1455.0
+margin_bottom = -1036.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="UI/Kit"]
+margin_top = 4.0
+margin_right = 184.0
+margin_bottom = 40.0
+theme = ExtResource( 1 )
+text = "Select Kit: "
+uppercase = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PrevButton" type="Button" parent="UI/Kit"]
+margin_left = 188.0
+margin_right = 213.0
+margin_bottom = 44.0
+theme = ExtResource( 1 )
+text = "<"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Selected" type="Label" parent="UI/Kit"]
+margin_left = 217.0
+margin_top = 4.0
+margin_right = 325.0
+margin_bottom = 40.0
+theme = ExtResource( 1 )
+text = "Shelter"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="NextButton" type="Button" parent="UI/Kit"]
+margin_left = 329.0
+margin_right = 376.0
+margin_bottom = 44.0
+theme = ExtResource( 1 )
+text = " >"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PlayButton" type="Button" parent="UI"]
+anchor_left = 0.441
+anchor_top = 0.613
+anchor_right = 0.527
+anchor_bottom = 0.613
+margin_right = 12.0
+margin_bottom = 20.0
+text = "Play!"
+flat = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="pressed" from="UI/Movement/PrevButton" to="." method="_on_prev_movement"]
+[connection signal="pressed" from="UI/Movement/NextButton" to="." method="_on_next_movement"]
+[connection signal="pressed" from="UI/Weapon/PrevButton" to="." method="_on_prev_weapon"]
+[connection signal="pressed" from="UI/Weapon/NextButton" to="." method="_on_next_weapon"]
+[connection signal="pressed" from="UI/Kit/PrevButton" to="." method="_on_prev_kit"]
+[connection signal="pressed" from="UI/Kit/NextButton" to="." method="_on_next_kit"]
+[connection signal="pressed" from="UI/PlayButton" to="." method="_on_play"]
